@@ -40,7 +40,8 @@ class LaunchPage(BaseDriver):
 
     def close_popup(self):
         pdb.set_trace()
-        return self.driver.find_element(By.XPATH,self.close)
+        self.wait_until_element_visible(By.XPATH,self.close)
+        return self.driver.find_element(By.XPATH,"//span[@class='wewidgeticon we_close icon-large']")
 
 
     def getDepatureDateField(self):
@@ -123,7 +124,7 @@ class LaunchPage(BaseDriver):
     def searchFlights(self, departlocation, goingtolocation, departuredate):
         self.enterDepartFromLocation(departlocation)
         self.enterGoingToLocation(goingtolocation)
-
+        self.close_popup().click()
         self.enterDepartureDate(departuredate)
         self.clickSearchFlightsButton()
         # search_flights_result = SearchFlightResults(self.driver)
