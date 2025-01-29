@@ -124,7 +124,6 @@ class LaunchPage(BaseDriver):
     def searchFlights(self, departlocation, goingtolocation, departuredate):
         self.enterDepartFromLocation(departlocation)
         self.enterGoingToLocation(goingtolocation)
-        self.close_popup().doubleclick()
         self.enterDepartureDate(departuredate)
         self.clickSearchFlightsButton()
         # search_flights_result = SearchFlightResults(self.driver)
